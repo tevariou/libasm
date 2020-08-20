@@ -7,10 +7,14 @@
 _ft_strdup:
 	call _ft_strlen
 	inc rax
-	push rdi
+	mov rsi, rdi
 	mov rdi, rax
 	call _malloc
+	test rax, rax
+	jz exit
 	mov rdi, rax
-	pop rsi
 	call _ft_strcpy
+
+exit:
 	ret
+
