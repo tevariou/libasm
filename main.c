@@ -1,10 +1,14 @@
 #include "libasm.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-int		main(int ac, char **av)
+int		main()
 {
-	(void)av;
-	(void)ac;
-	ft_write(1, "42\n", 3);
+	char *s;
+
+	s = strdup("42");
+	printf("%s\n", s);
+	free(s);
 	return (EXIT_SUCCESS);
 }

@@ -28,15 +28,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0b53bb8-5141-4897-b575-698b6c783c3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libasm.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_read.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_strcmp.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_strcpy.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_strdup.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_strlen.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/ft_write.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_read.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_read.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_strcmp.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_strcmp.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_strcpy.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_strcpy.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_strdup.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_strdup.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_strlen.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_strlen.s" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -88,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597584204209</updated>
       <workItem from="1597584206285" duration="51000" />
-      <workItem from="1597584273842" duration="8572000" />
+      <workItem from="1597584273842" duration="31156000" />
     </task>
     <servers />
   </component>
@@ -119,10 +118,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="580" y="334" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1597887205430" />
-    <state x="341" y="137" key="SettingsEditor" timestamp="1597613624347">
+    <state x="341" y="137" key="SettingsEditor" timestamp="1597895785114">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="341" y="137" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1597613624347" />
+    <state x="341" y="137" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1597895785114" />
     <state x="341" y="151" key="SettingsEditor/0.23.1680.978@0.23.1680.978" timestamp="1597584288756" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1597889679636">
       <screen x="0" y="0" width="1680" height="1050" />

@@ -2,7 +2,11 @@ NAME	:=	libasm.a
 SDIR	:=	./srcs
 ODIR	:=	./objs
 SRCS	:=	ft_write.s \
-			ft_read.s
+			ft_read.s \
+			ft_strlen.s \
+			ft_strcpy.s \
+			ft_strcmp.s \
+			ft_strdup.s
 _OBJ	:= 	$(SRCS:.s=.o)
 OBJ		:= 	$(patsubst %, $(ODIR)/%, $(_OBJ))
 
@@ -23,7 +27,7 @@ fclean : clean
 
 re: fclean all
 
-test:
+test: re
 	@gcc -Wall -Werror -Wextra -fsanitize=address -o test -L. -lasm main.c -I.$
 	@./test
 	@rm test
