@@ -7,7 +7,6 @@ _ft_strlen:
 
 increment:
 	inc rax ; i++
-	jmp compare
 
 compare:
 	cmp byte[rdi+rax], 0 ; if (s[i] == 0)
