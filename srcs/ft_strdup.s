@@ -10,7 +10,7 @@ _ft_strdup:
 	inc rax ; increment for null termination
 	mov rdi, rax
 	call _malloc
-	pop rsi ;
+	pop rsi
 	test rax, rax ; check malloc return value
 	jz exit
 	mov rdi, rax
