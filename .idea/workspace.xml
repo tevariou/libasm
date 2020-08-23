@@ -29,7 +29,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0b53bb8-5141-4897-b575-698b6c783c3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_strdup.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_strdup.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libasm.h" beforeDir="false" afterPath="$PROJECT_DIR$/libasm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_read.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_read.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ft_write.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_write.s" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="f426774b-6dc8-400b-a53c-d9d17d3bf635" />
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="gzq1zjzk" />
+  </component>
   <component name="ProjectId" id="1gBNopTdDdmQmZzO3csQYQsjEvt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -78,6 +83,7 @@
       <workItem from="1597584206285" duration="51000" />
       <workItem from="1597584273842" duration="31231000" />
       <workItem from="1597921759803" duration="2238000" />
+      <workItem from="1598180175411" duration="2282000" />
     </task>
     <servers />
   </component>
