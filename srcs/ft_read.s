@@ -11,6 +11,7 @@ _ft_read:
     push rax
     call ___error
     pop qword[rax]
+    mov rax, -1
 
 done:
 	leave
