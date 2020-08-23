@@ -29,9 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0b53bb8-5141-4897-b575-698b6c783c3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libasm.h" beforeDir="false" afterPath="$PROJECT_DIR$/libasm.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_read.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_read.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ft_write.s" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ft_write.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <workItem from="1597584206285" duration="51000" />
       <workItem from="1597584273842" duration="31231000" />
       <workItem from="1597921759803" duration="2238000" />
-      <workItem from="1598180175411" duration="2282000" />
+      <workItem from="1598180175411" duration="5182000" />
     </task>
     <servers />
   </component>
