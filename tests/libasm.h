@@ -1,8 +1,8 @@
 #ifndef LIBASM_H
 # define LIBASM_H
 
-# include <sys/types.h>
-# include <errno.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dst, const char *src);

@@ -1,14 +1,15 @@
-	global  _ft_strlen
-	section .text
+    section .text
+    global  ft_strlen
 
-_ft_strlen:
-	xor rax, rax ; i = 0
-	jmp compare
+ft_strlen:
+	xor rax, rax            ; i = 0
+	jmp .compare
 
-increment:
-	inc rax ; i++
+.compare:
+	cmp byte[rdi+rax], 0    ; if (s[i] == 0)
+	jz  .done
+	inc rax                 ; i++
+	jmp .compare
 
-compare:
-	cmp byte[rdi+rax], 0 ; if (s[i] == 0)
-	jne increment
-	ret
+.done:
+    ret

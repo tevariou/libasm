@@ -1,14 +1,15 @@
-	global _ft_strcpy
 	section .text
+	global  ft_strcpy
 
-_ft_strcpy:
-	cld
-	push rdi ; save dst
+ft_strcpy:
+	cld                 ; clear direction flag (forward direction)
+	xor     rax, rax    ; ret = 0
+	push    rdi         ; save dst
 
-copy:
-	lodsb ; tmp = *src++
-	stosb ; *dest++ = tmp
-	test al, al ; if (tmp & tmp)
-	jnz copy
-	pop rax ; ret dst
+.copy:
+	lodsb               ; tmp = *src++ (load rsi into al and increment rsi according to direction flag)
+	stosb               ; *dst++ = tmp (load al into rdi and increment rdi according to direction flag)
+	test    al, al      ; tmp & tmp
+	jnz     .copy       ; jump if not zero
+	pop     rax         ; ret dst
 	ret

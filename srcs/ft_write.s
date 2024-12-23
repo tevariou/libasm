@@ -1,18 +1,19 @@
-	global _ft_write
-	extern	___error
-	section .text
+    section .text
+	global  ft_write
+	extern  __errno_location
 
-_ft_write:
-    enter 0, 0
-	mov rax, 0x2000004 ; SYSCALL_CLASS_UNIX write
+ft_write:
+	mov     rax, 1                      ; write
 	syscall
-	jnc done
-	sub rsp, 8
-    push rax
-    call ___error
-    pop qword[rax]
-    mov rax, -1
+	test    rax, rax
+	jns     .done                       ; if no error (>=0), return
 
-done:
-	leave
-	ret
+.error:
+	neg     rax
+    push    rax
+    call    __errno_location wrt ..plt  ; with respect to procedure linkage table
+    pop     qword[rax]
+    mov     rax, -1
+
+.done:
+    ret

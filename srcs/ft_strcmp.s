@@ -1,20 +1,30 @@
-	global _ft_strcmp
-	section .text
+    section .text
+	global  ft_strcmp
 
-_ft_strcmp:
-	cld
+ft_strcmp:
+	cld                     ; clear direction flag
+	xor     rax, rax        ; ret = 0
 
-compare:
-	cmp byte[rdi], 0 ; if (*s1 == 0)
-	je done
-	cmp byte[rsi], 0 ; if (*s2 == 0)
-	je done
-	cmpsb ; if (*s1++ == *s2++)
-	je compare
-	dec di ; s1--
-	dec si ; s2--
+.compare:
+	cmp     byte[rdi], 0    ; if (*s1 == 0)
+	jz      .stop
+	cmp     byte[rsi], 0    ; if (*s2 == 0)
+	jz      .stop
+	cmpsb                   ; if (*s1++ == *s2++)
+	jz      .compare
 
-done:
-    movsx  rax, byte[rdi] ; ret = *s1
-	sub rax, [rsi] ; ret -= *s2
+.stop:
+    mov     al, byte[rdi]
+    sub     al, byte[rsi]   ; *s1 - *s2
+    jge     .positive
+    mov     rax, -1
+    ret
+
+.positive:
+    test    al, al
+    jz      .done
+    mov     rax, 1
 	ret
+
+.done:
+    ret
