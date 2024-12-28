@@ -1,9 +1,6 @@
 #include "ft_test.h"
-#include <errno.h>
-#include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 bool    ft_assert_ssize_eq(T_Case *tc, const ssize_t a, const ssize_t b)
 {
@@ -29,7 +26,7 @@ bool    ft_assert_ptr_eq(T_Case *tc, const void *a, const void *b)
     return (tc->passed);
 }
 
-bool ft_assert_ptr_ne(T_Case *tc, const void *a, const void *b)
+bool    ft_assert_ptr_ne(T_Case *tc, const void *a, const void *b)
 {
     tc->passed = (a != b);
     return (tc->passed);

@@ -10,9 +10,9 @@ ft_strdup:
 	inc     rax                 ; increment for null termination
 	mov     rdi, rax            ; pass size to malloc
 	call    malloc wrt ..plt
+	pop     rsi                 ; restore src
 	test    rax, rax
 	jz      .done
-	pop     rsi
 	mov     rdi, rax
 	call    ft_strcpy
 

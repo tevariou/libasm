@@ -1,17 +1,17 @@
-NAME	:=	libasm.a
-SDIR	:=	./srcs
-ODIR	:=	./objs
-SRCS	:=	ft_write.s ft_read.s ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
-_OBJ	:= 	$(SRCS:.s=.o)
-OBJ		:= 	$(patsubst %, $(ODIR)/%, $(_OBJ))
+NAME			:=	libasm.a
+SDIR			:=	./srcs
+ODIR			:=	./objs
+SRCS			:=	ft_write.s ft_read.s ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
+_OBJ			:= 	$(SRCS:.s=.o)
+OBJ				:= 	$(patsubst %, $(ODIR)/%, $(_OBJ))
 
-.PHONY: all clean fclean re test run
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creating $@"
-	@ar crs $@ $<
+	@ar crs $@ $^
 
 $(ODIR)/%.o: $(SDIR)/%.s
 	@mkdir -p $(ODIR)
@@ -31,7 +31,7 @@ TEST_NAME		:=	test_libasm
 LIBASM_NAME		:=	libasm.a
 LIBASM_PATH		:=	$(LIBASM_NAME)
 CC				:=	gcc
-CFLAGS			:=	-Wall -Werror -Wextra -fsanitize=address -z noexecstack
+CFLAGS			:=	-Wall -Werror -Wextra -fsanitize=address
 TEST_SRC_DIR	:=	tests
 TEST_INC_DIR	:=	tests
 TEST_OBJ_DIR	:=	test_objs
@@ -47,14 +47,25 @@ TEST_INCS		:=	$(TEST_INC_DIR)/libasm.h $(TEST_INC_DIR)/ft_test.h
 TEST_OBJS		:=	$(addprefix $(TEST_OBJ_DIR)/, $(TEST_SRCS:.c=.o))
 MD				:=	mkdir -p
 
-test: re $(TEST_NAME)
+.PHONY: build-test test clean-test fclean-test docker-test
+
+build-test: re $(TEST_NAME)
 
 $(TEST_NAME): $(TEST_OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBASM_NAME) -lm -lcheck
+	@$(CC) $(CFLAGS) -o $@ $^ -L. -lasm
 
 $(TEST_OBJ_DIR)/%.o: $(TEST_SRC_DIR)/%.c $(TEST_INCS)
 	@$(MD) $(TEST_OBJ_DIR)
 	@$(CC) $(CFLAGS) -o $@ -c $< -I $(TEST_INC_DIR)
+
+test: build-test
+	@./$(TEST_NAME)
+
+clean-test: clean
+	@rm -rf $(TEST_OBJ_DIR)
+
+fclean-test: fclean clean-test
+	@rm -f $(TEST_NAME)
 
 docker-test:
 	@docker build --platform linux/amd64 -t libasm:latest -f ./tests/Dockerfile .

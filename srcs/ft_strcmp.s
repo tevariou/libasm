@@ -12,19 +12,19 @@ ft_strcmp:
 	jz      .stop
 	cmpsb                   ; if (*s1++ == *s2++)
 	jz      .compare
+	dec     rdi             ; go back to the last matching character
+	dec     rsi             ; go back to the last matching character
 
 .stop:
     mov     al, byte[rdi]
     sub     al, byte[rsi]   ; *s1 - *s2
-    jge     .positive
+    jz      .done
+    jns     .positive
     mov     rax, -1
     ret
 
 .positive:
-    test    al, al
-    jz      .done
     mov     rax, 1
-	ret
 
 .done:
     ret

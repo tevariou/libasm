@@ -10,9 +10,9 @@ T_Case   test_ft_strdup_with_non_blank_strings(void)
         .passed = true
     };
 
-    const char *src = "Hello, World!";
-    char *ft_d = ft_strdup(src);
-    char *std_d = strdup(src);
+    const char  *src = "Hello, World!";
+    char        *ft_d = ft_strdup(src);
+    char        *std_d = strdup(src);
 
     if (
         !ft_assert_str_eq(&tc, ft_d, src) 
@@ -35,9 +35,9 @@ T_Case  test_ft_strdup_with_blank_strings(void)
         .passed = true
     };
 
-    const char *src = "";
-    char *ft_d = ft_strdup(src);
-    char *std_d = strdup(src);
+    const char  *src = "";
+    char        *ft_d = ft_strdup(src);
+    char        *std_d = strdup(src);
 
     if (
         !ft_assert_str_eq(&tc, ft_d, src)

@@ -11,11 +11,11 @@ T_Case  test_ft_strcmp_with_blank_strings(void)
         .passed = true
     };
 
-    const char *str1 = "";
-    const char *str2 = "";
+    const char  *str1 = "";
+    const char  *str2 = "";
 
-    const int custom_result = ft_strcmp(str1, str2);
-    const int std_result = strcmp(str1, str2);
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
 
     if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
         return tc;
@@ -30,11 +30,11 @@ T_Case  test_ft_strcmp_with_str1_less_than_str2(void)
         .passed = true
     };
 
-    const char *str1 = "Hello, World";
-    const char *str2 = "Hello, World!!";
+    const char  *str1 = "Hello, World";
+    const char  *str2 = "Hello, World!!";
 
-    const int custom_result = ft_strcmp(str1, str2);
-    const int std_result = strcmp(str1, str2);
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
 
     if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
         return tc;
@@ -42,6 +42,24 @@ T_Case  test_ft_strcmp_with_str1_less_than_str2(void)
     return tc;
 }
 
+T_Case  test_ft_strcmp_with_str1_less_than_str2_bis(void)
+{
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_str1_less_than_str2",
+        .passed = true
+    };
+
+    const char  *str1 = "a";
+    const char  *str2 = "b";
+
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
+
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
+}
 
 T_Case  test_ft_strcmp_with_str1_greater_than_str2(void)
 {
@@ -50,11 +68,30 @@ T_Case  test_ft_strcmp_with_str1_greater_than_str2(void)
         .passed = true
     };
 
-    const char *str1 = "Hello, World!";
-    const char *str2 = "Hello, World";
+    const char  *str1 = "Hello, World!";
+    const char  *str2 = "Hello, World";
 
-    const int custom_result = ft_strcmp(str1, str2);
-    const int std_result = strcmp(str1, str2);
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
+
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
+}
+
+T_Case  test_ft_strcmp_with_str1_greater_than_str2_bis(void)
+{
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_str1_greater_than_str2",
+        .passed = true
+    };
+
+    const char  *str1 = "b";
+    const char  *str2 = "a";
+
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
 
     if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
         return tc;
@@ -69,11 +106,11 @@ T_Case  test_ft_strcmp_with_same_string(void)
         .passed = true
     };
 
-    const char *str1 = "Hello, World!";
-    const char *str2 = "Hello, World!";
+    const char  *str1 = "Hello, World!";
+    const char  *str2 = "Hello, World!";
 
-    const int custom_result = ft_strcmp(str1, str2);
-    const int std_result = strcmp(str1, str2);
+    const int   custom_result = ft_strcmp(str1, str2);
+    const int   std_result = strcmp(str1, str2);
 
     if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
         return tc;
@@ -86,7 +123,9 @@ bool    ft_strcmp_suite(void)
     t_test_func   test_funcs[] = {
         test_ft_strcmp_with_same_string,
         test_ft_strcmp_with_str1_greater_than_str2,
+        test_ft_strcmp_with_str1_greater_than_str2_bis,
         test_ft_strcmp_with_str1_less_than_str2,
+        test_ft_strcmp_with_str1_less_than_str2_bis,
         test_ft_strcmp_with_blank_strings
     };
 

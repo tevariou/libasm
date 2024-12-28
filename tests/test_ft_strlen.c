@@ -9,13 +9,11 @@ T_Case  test_ft_strlen_with_non_blank_string(void)
         .passed = true
     };
 
-    const char *str = "Hello, World!";
-    const size_t custom_len = ft_strlen(str);
-    const size_t std_len = strlen(str);
+    const char      *str = "Hello, World!";
+    const size_t    custom_len = ft_strlen(str);
+    const size_t    std_len = strlen(str);
 
     if (!ft_assert_size_eq(&tc, custom_len, std_len))
-        return tc;
-    if (!ft_assert_size_eq(&tc, custom_len, 13))
         return tc;
 
     return tc;
@@ -28,9 +26,9 @@ T_Case  test_ft_strlen_with_blank_string(void)
         .passed = true
     };
 
-    const char *str = "";
-    const size_t custom_len = ft_strlen(str);
-    const size_t std_len = strlen(str);
+    const char      *str = "";
+    const size_t    custom_len = ft_strlen(str);
+    const size_t    std_len = strlen(str);
 
     if (!ft_assert_size_eq(&tc, custom_len, std_len))
         return tc;

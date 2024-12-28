@@ -23,8 +23,6 @@ T_Case  test_ft_write_with_closed_fd(void)
     const ssize_t   ret1 = ft_write(fd1, buf1, 100);
     const int       errno1 = errno;
 
-    close(fd1);
-
     const int       fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
     char            buf2[100];
 
