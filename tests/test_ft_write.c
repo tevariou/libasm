@@ -3,35 +3,35 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <string.h>
-
+#include <unistd.h>
 
 T_Case  test_ft_write_with_closed_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_write_with_closed_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
-    const char  *SOURCE_FILE_PATH = "/dev/null";
-    const int   fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
-    char        buf1[100];
+    const char      *SOURCE_FILE_PATH = "/dev/null";
+    const int       fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
+    char            buf1[100];
+
     memset(buf1, 0, 100);
 
     close(fd1);
 
-    const ssize_t ret1 = ft_write(fd1, buf1, 100);
-
-    const int errno1 = errno;
+    const ssize_t   ret1 = ft_write(fd1, buf1, 100);
+    const int       errno1 = errno;
 
     close(fd1);
 
-    const int   fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
-    char        buf2[100];
+    const int       fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
+    char            buf2[100];
+
     memset(buf2, 0, 100);
 
-    const ssize_t ret2 = write(fd2, buf2, 100);
-
-    const int errno2 = errno;
+    const ssize_t   ret2 = write(fd2, buf2, 100);
+    const int       errno2 = errno;
 
     if (!ft_assert_ssize_eq(&tc, ret1, ret2))
         return tc;
@@ -45,23 +45,20 @@ T_Case  test_ft_write_with_null_buf(void)
 {
     T_Case tc = {
         .name = "test_ft_write_with_null_buf",
-        .failure_message = NULL
+        .passed = true
     };
 
-    const char  *SOURCE_FILE_PATH = "/dev/null";
-    const int   fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
+    const char      *SOURCE_FILE_PATH = "/dev/null";
 
-    const ssize_t ret1 = ft_write(fd1, NULL, 0);
-
-    const int errno1 = errno;
+    const int       fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
+    const ssize_t   ret1 = ft_write(fd1, NULL, 0);
+    const int       errno1 = errno;
 
     close(fd1);
 
-    const int   fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
-
-    const ssize_t ret2 = write(fd2, NULL, 0);
-
-    const int errno2 = errno;
+    const int       fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
+    const ssize_t   ret2 = write(fd2, NULL, 0);
+    const int       errno2 = errno;
 
     close(fd2);
 
@@ -77,25 +74,26 @@ T_Case  test_ft_write_with_valid_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_write_with_valid_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
-    const char  *SOURCE_FILE_PATH = "/dev/null";
-    const int   fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
-    char        buf1[100];
+    const char      *SOURCE_FILE_PATH = "/dev/null";
+
+    const int       fd1 = open(SOURCE_FILE_PATH, O_RDONLY);
+    char            buf1[100];
 
     memset(buf1, 0, 100);
 
-    const ssize_t ret1 = ft_write(fd1, buf1, 100);
+    const ssize_t   ret1 = ft_write(fd1, buf1, 100);
 
     close(fd1);
 
-    const int   fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
+    const int       fd2 = open(SOURCE_FILE_PATH, O_RDONLY);
+    char            buf2[100];
 
-    char        buf2[100];
     memset(buf2, 0, 100);
 
-    const ssize_t ret2 = write(fd2, buf2, 100);
+    const ssize_t   ret2 = write(fd2, buf2, 100);
 
     close(fd2);
 
@@ -111,22 +109,22 @@ T_Case  test_ft_write_with_invalid_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_write_with_invalid_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
-    char        buf1[100];
+    char            buf1[100];
     memset(buf1, 0, 100);
 
-    const ssize_t ret1 = ft_write(-1, buf1, 100);
+    const ssize_t   ret1 = ft_write(-1, buf1, 100);
+    const int       errno1 = errno;
 
-    const int errno1 = errno;
-
-    char        buf2[100];
+    char            buf2[100];
+    
     memset(buf2, 0, 100);
 
-    const ssize_t ret2 = write(-1, buf2, 100);
+    const ssize_t   ret2 = write(-1, buf2, 100);
 
-    const int errno2 = errno;
+    const int       errno2 = errno;
 
     if (!ft_assert_ssize_eq(&tc, errno1, errno2))
         return tc;

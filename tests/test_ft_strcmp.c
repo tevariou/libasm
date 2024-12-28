@@ -2,14 +2,13 @@
 #include "ft_test.h"
 #include <errno.h>
 #include <fcntl.h>
-#include <stdio.h>
 #include <string.h>
 
 T_Case  test_ft_strcmp_with_blank_strings(void)
 {
     T_Case tc = {
         .name = "test_ft_strcmp_with_blank_strings",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str1 = "";
@@ -28,7 +27,7 @@ T_Case  test_ft_strcmp_with_str1_less_than_str2(void)
 {
     T_Case tc = {
         .name = "test_ft_strcmp_with_str1_less_than_str2",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str1 = "Hello, World";
@@ -48,7 +47,7 @@ T_Case  test_ft_strcmp_with_str1_greater_than_str2(void)
 {
     T_Case tc = {
         .name = "test_ft_strcmp_with_str1_greater_than_str2",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str1 = "Hello, World!";
@@ -67,7 +66,7 @@ T_Case  test_ft_strcmp_with_same_string(void)
 {
     T_Case tc = {
         .name = "test_ft_strcmp_with_same_string",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str1 = "Hello, World!";

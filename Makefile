@@ -1,12 +1,7 @@
 NAME	:=	libasm.a
 SDIR	:=	./srcs
 ODIR	:=	./objs
-SRCS	:=	ft_write.s \
-			ft_read.s \
-			ft_strlen.s \
-			ft_strcpy.s \
-			ft_strcmp.s \
-			ft_strdup.s
+SRCS	:=	ft_write.s ft_read.s ft_strlen.s ft_strcpy.s ft_strcmp.s ft_strdup.s
 _OBJ	:= 	$(SRCS:.s=.o)
 OBJ		:= 	$(patsubst %, $(ODIR)/%, $(_OBJ))
 
@@ -16,12 +11,10 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creating $@"
-	@ar crs $@ $^
+	@ar crs $@ $<
 
-$(ODIR):
-	@mkdir -p $@
-
-$(ODIR)/%.o: $(SDIR)/%.s $(ODIR)
+$(ODIR)/%.o: $(SDIR)/%.s
+	@mkdir -p $(ODIR)
 	@echo "Compiling $<"
 	@nasm -f elf64 -Werror -o $@ $<
 
@@ -57,7 +50,7 @@ MD				:=	mkdir -p
 test: re $(TEST_NAME)
 
 $(TEST_NAME): $(TEST_OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIBASM_NAME) -lm -lsubunit -lcheck
+	$(CC) $(CFLAGS) -o $@ $^ $(LIBASM_NAME) -lm -lcheck
 
 $(TEST_OBJ_DIR)/%.o: $(TEST_SRC_DIR)/%.c $(TEST_INCS)
 	@$(MD) $(TEST_OBJ_DIR)

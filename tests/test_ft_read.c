@@ -4,13 +4,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
-
+#include <unistd.h>
 
 T_Case  test_ft_read_with_closed_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_read_with_closed_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
     const int   fd1 = open("/dev/random", O_RDONLY);
@@ -39,7 +39,7 @@ T_Case  test_ft_read_with_null_buf(void)
 {
     T_Case tc = {
         .name = "test_ft_read_with_null_buf",
-        .failure_message = NULL
+        .passed = true
     };
 
     const int   fd1 = open("/dev/random", O_RDONLY);
@@ -64,7 +64,7 @@ T_Case  test_ft_read_with_invalid_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_read_with_invalid_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
     char        buf1[100];
@@ -95,7 +95,7 @@ T_Case  test_ft_read_with_valid_fd(void)
 {
     T_Case tc = {
         .name = "test_ft_read_with_valid_fd",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char  *SOURCE_FILE_PATH = "../author";

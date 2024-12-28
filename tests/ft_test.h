@@ -3,10 +3,11 @@
 
 #include <stdbool.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 typedef struct {
     char    *name;
-    char    *failure_message;
+    bool    passed;
 }       T_Case;
 
 typedef T_Case(* t_test_func)(void);

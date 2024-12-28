@@ -6,7 +6,7 @@ T_Case  test_ft_strlen_with_non_blank_string(void)
 {
     T_Case tc = {
         .name = "test_ft_strlen_with_non_blank_string",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str = "Hello, World!";
@@ -25,7 +25,7 @@ T_Case  test_ft_strlen_with_blank_string(void)
 {
     T_Case tc = {
         .name = "test_ft_strlen_with_blank_string",
-        .failure_message = NULL
+        .passed = true
     };
 
     const char *str = "";
