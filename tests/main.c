@@ -1,10 +1,11 @@
 #include "ft_test.h"
-#include <check.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int		main()
 {
-    const t_test_func test_funcs[] = {
+    printf("[LIBASM]\nRunning tests...\n");
+    const t_suite_func t_suite_funcs[] = {
         ft_read_suite,
         ft_strcmp_suite,
         ft_strcpy_suite,
@@ -13,15 +14,9 @@ int		main()
         ft_write_suite
     };
 
-    for (u_int i=0; i < sizeof(test_funcs) / sizeof(t_test_func); i++)
+    for (u_int i=0; i < sizeof(t_suite_funcs) / sizeof(t_suite_func); i++)
     {
-        Suite *s = test_funcs[i]();
-        SRunner *sr = srunner_create(s);
-        srunner_run_all(sr, CK_NORMAL);
-        const int number_failed = srunner_ntests_failed(sr);
-        srunner_free(sr);
-
-        if (number_failed != 0)
+        if (!t_suite_funcs[i]())
             return (EXIT_FAILURE);
     }
 

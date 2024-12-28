@@ -1,63 +1,95 @@
 #include "libasm.h"
-#include <check.h>
+#include "ft_test.h"
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
 
-
-START_TEST(test_ft_strcmp_with_blank_strings)
+T_Case  test_ft_strcmp_with_blank_strings(void)
 {
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_blank_strings",
+        .failure_message = NULL
+    };
+
     const char *str1 = "";
     const char *str2 = "";
 
     const int custom_result = ft_strcmp(str1, str2);
     const int std_result = strcmp(str1, str2);
 
-    ck_assert_int_eq(custom_result, std_result);
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
 }
 
-START_TEST(test_ft_strcmp_with_str1_less_than_str2)
+T_Case  test_ft_strcmp_with_str1_less_than_str2(void)
 {
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_str1_less_than_str2",
+        .failure_message = NULL
+    };
+
     const char *str1 = "Hello, World";
     const char *str2 = "Hello, World!!";
 
     const int custom_result = ft_strcmp(str1, str2);
     const int std_result = strcmp(str1, str2);
 
-    ck_assert_int_eq(custom_result, std_result);
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
 }
 
-START_TEST(test_ft_strcmp_with_str1_greater_than_str2)
+
+T_Case  test_ft_strcmp_with_str1_greater_than_str2(void)
 {
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_str1_greater_than_str2",
+        .failure_message = NULL
+    };
+
     const char *str1 = "Hello, World!";
-    const char *str2 = "Hello,";
+    const char *str2 = "Hello, World";
 
     const int custom_result = ft_strcmp(str1, str2);
     const int std_result = strcmp(str1, str2);
 
-    ck_assert_int_eq(custom_result, std_result);
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
 }
 
-START_TEST(test_ft_strcmp_with_same_string)
+T_Case  test_ft_strcmp_with_same_string(void)
 {
+    T_Case tc = {
+        .name = "test_ft_strcmp_with_same_string",
+        .failure_message = NULL
+    };
+
     const char *str1 = "Hello, World!";
     const char *str2 = "Hello, World!";
 
     const int custom_result = ft_strcmp(str1, str2);
     const int std_result = strcmp(str1, str2);
 
-    ck_assert_int_eq(custom_result, std_result);
+    if (!ft_assert_ssize_eq(&tc, custom_result, std_result))
+        return tc;
+
+    return tc;
 }
-END_TEST
 
-Suite *ft_strcmp_suite(void)
+bool    ft_strcmp_suite(void)
 {
-    Suite   *s = suite_create("ft_strcmp");
-    TCase   *tc_core = tcase_create("Core");
+    t_test_func   test_funcs[] = {
+        test_ft_strcmp_with_same_string,
+        test_ft_strcmp_with_str1_greater_than_str2,
+        test_ft_strcmp_with_str1_less_than_str2,
+        test_ft_strcmp_with_blank_strings
+    };
 
-    tcase_add_test(tc_core, test_ft_strcmp_with_same_string);
-    tcase_add_test(tc_core, test_ft_strcmp_with_str1_greater_than_str2);
-    tcase_add_test(tc_core, test_ft_strcmp_with_str1_less_than_str2);
-    tcase_add_test(tc_core, test_ft_strcmp_with_blank_strings);
-
-    suite_add_tcase(s, tc_core);
-
-    return s;
+    return ft_test_suite("ft_strcmp", test_funcs, sizeof(test_funcs) / sizeof(t_test_func));
 }

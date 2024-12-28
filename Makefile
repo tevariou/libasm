@@ -43,6 +43,7 @@ TEST_SRC_DIR	:=	tests
 TEST_INC_DIR	:=	tests
 TEST_OBJ_DIR	:=	test_objs
 TEST_SRCS		:=	main.c \
+					utils.c \
 					test_ft_read.c \
 					test_ft_strcmp.c \
 					test_ft_strcpy.c \
